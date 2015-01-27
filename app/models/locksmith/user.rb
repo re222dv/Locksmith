@@ -5,14 +5,11 @@ module Locksmith
     has_secure_password
     has_many :applications
 
-    validates :name,
-              presence: true,
-              uniqueness: { case_sensitive: false }
+    validates_presence_of :name
 
     validates :email,
               presence: true,
-              email: true,
-              confirmation: true,
+              email: { message: 'must be valid' },
               uniqueness: { case_sensitive: false }
 
     before_save { self.email.downcase! }
