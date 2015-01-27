@@ -9,6 +9,7 @@ module Locksmith
     it { should validate_presence_of :user }
     it { should validate_presence_of :name }
     it { should validate_presence_of :key }
+    it { should validate_uniqueness_of :key }
 
     it 'should generate a random key when created' do
       stingray = Application.create name: 'Stingray', user: @anna

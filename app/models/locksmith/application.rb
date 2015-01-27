@@ -4,10 +4,14 @@ module Locksmith
 
     validates_presence_of :user
     validates_presence_of :name
-    validates_presence_of :key
+    validates :key, presence: true, uniqueness: true
 
     after_initialize do
-      self.key = SecureRandom.base64 25 if self.key.nil?
+      loop do
+        # Generate a secure random key if missing and make sure that it's unique
+        self.key = SecureRandom.base64 25 if self.key.nil?
+        break if Application.where(key: self.key).empty?
+      end
     end
   end
 end
