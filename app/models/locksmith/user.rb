@@ -14,5 +14,7 @@ module Locksmith
               email: true,
               confirmation: true,
               uniqueness: { case_sensitive: false }
+
+    before_save { self.email.downcase! }
   end
 end

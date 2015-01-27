@@ -13,5 +13,11 @@ module Locksmith
     it { should validate_uniqueness_of :email }
     it { should allow_value('example@email.com').for :email }
     it { should_not allow_value('@email.com').for :email }
+
+    it 'should downcase email before save' do
+      peter = User.create name: 'Peter', email: 'Peter@example.com', password: 'password'
+      peter.save
+      expect(peter.email).to be == 'peter@example.com'
+    end
   end
 end

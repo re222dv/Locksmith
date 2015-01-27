@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122195948) do
+ActiveRecord::Schema.define(version: 20150127121447) do
 
   create_table "locksmith_applications", force: :cascade do |t|
     t.string   "name",       limit: 30
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150122195948) do
     t.datetime "updated_at",            null: false
   end
 
+  add_index "locksmith_applications", ["key"], name: "index_locksmith_applications_on_key", unique: true
   add_index "locksmith_applications", ["user_id"], name: "index_locksmith_applications_on_user_id"
 
   create_table "locksmith_users", force: :cascade do |t|
