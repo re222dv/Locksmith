@@ -2,13 +2,15 @@
 <html>
 <head>
   <title>Locksmith</title>
-  <%= stylesheet_link_tag    "locksmith/application", media: "all" %>
-  <%= javascript_include_tag "locksmith/application" %>
+  <%= stylesheet_link_tag    'locksmith/application', media: 'all' %>
+  <%= javascript_include_tag 'locksmith/application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <% flash.each do |type, message| %>
+      <p class="flash <%= type %>"><%= message %></p>
+  <% end %>
+  <%= yield %>
+  <%= debug(params) if Rails.env.development? %>
 </body>
 </html>
