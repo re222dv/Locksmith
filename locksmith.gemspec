@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['spec/**/*']
 
   s.add_dependency 'rails', '~> 4.2'
+  s.add_dependency 'sass-rails'
   s.add_dependency 'bcrypt'
   s.add_dependency 'email_validator'
 
