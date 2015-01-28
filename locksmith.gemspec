@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Locksmith::VERSION
   s.authors     = ['Rasmus Eneman']
   s.email       = ['rasmus@eneman.eu']
-  s.homepage    = 'TODO'
+  s.homepage    = 'https://github.com/re222dv/Locksmith'
   s.summary     = 'An API key handler.'
   s.description = 'TODO: Description of Locksmith.'
   s.license     = 'MIT'
