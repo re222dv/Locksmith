@@ -19,7 +19,7 @@ module Locksmith
       # Does this need testing? It's tested pretty much by testing the other methods in the class
     end
 
-    describe '#sign_out?' do
+    describe '#sign_out' do
       it 'should sign out the current user' do
         helper.sign_in user
         helper.sign_out
