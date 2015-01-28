@@ -2,7 +2,6 @@ require 'rails_helper'
 
 module Locksmith
   describe Application do
-    fixtures :locksmith_users
 
     it { should belong_to :user }
 
@@ -12,8 +11,8 @@ module Locksmith
     it { should validate_uniqueness_of :key }
 
     it 'should generate a random key when created' do
-      stingray = Application.create name: 'Stingray', user: @anna
-      barracuda = Application.create name: 'Barracuda', user: @anna
+      stingray = Application.create name: 'Stingray'
+      barracuda = Application.create name: 'Barracuda'
 
       expect(stingray.key.length).to be > 32
       expect(barracuda.key.length).to be > 32

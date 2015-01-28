@@ -11,9 +11,9 @@ module Locksmith
     it { should validate_uniqueness_of :email }
     it { should allow_value('example@email.com').for :email }
     it { should allow_value('example+alias@email.com').for :email }
-    it { should_not allow_value('example').for(:email), with_message: 'must be valid' }
-    it { should_not allow_value('@email.com').for(:email), with_message: 'must be valid' }
-    it { should_not allow_value('example@email').for(:email), with_message: 'must be valid' }
+    it { should_not allow_value('example').for(:email).with_message 'must be valid' }
+    it { should_not allow_value('@email.com').for(:email).with_message 'must be valid' }
+    it { should_not allow_value('example@email').for(:email).with_message 'must be valid' }
 
     it 'should downcase email before save' do
       peter = User.create name: 'Peter', email: 'Peter@example.com', password: 'password'

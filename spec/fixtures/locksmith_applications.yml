@@ -1,0 +1,27 @@
+narwhal:
+  name: Narwhal
+  key: 7EFAUGbuemSYBgNC92/BYl4BSrRPfwsDAQ==
+  user_id: 1
+  created_at: 0
+  updated_at: 0
+
+marlin:
+  name: Marlin
+  key: bu7nCxqOyHIfo2G1CtO9B7RpaZx+N768/g==
+  user_id: 1
+  created_at: 0
+  updated_at: 0
+
+elephant:
+  name: Elephant
+  key: 7EFajkKSsd8j3j38o8SsdjsakjdafwsDAQ==
+  user_id: 2
+  created_at: 0
+  updated_at: 0
+
+giraffe:
+  name: Giraffe
+  key: asdkasudyIsA8iSJdtO9B7RpaZx+N768/g==
+  user_id: 2
+  created_at: 0
+  updated_at: 0

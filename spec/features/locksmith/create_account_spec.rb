@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# noinspection RailsParamDefResolve
 module Locksmith
   include SessionHelpers
 
@@ -16,7 +17,7 @@ module Locksmith
     scenario 'with valid name, email and password' do
       create_account 'Some Name', 'valid@example.com', 'password'
 
-      expect(page).to have_content 'Your account have been created'
+      expect(page.find '.flash.success').to have_content 'Your account have been created'
       expect(page).to have_button 'Sign out'
     end
 

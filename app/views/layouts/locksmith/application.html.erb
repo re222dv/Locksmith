@@ -12,10 +12,10 @@
   <% end %>
   <nav>
     <% if signed_in? %>
-        <%= form_tag signout_path, :method => :delete do %>
+        <%= link_to 'My applications', root_path %>
+        <%= form_tag signout_path, method: :delete do %>
             <%= submit_tag 'Sign out' %>
         <% end %>
-        <!--<%= link_to 'Sign out', signout_path, method: :post %>-->
     <% end %>
   </nav>
   <%= yield %>

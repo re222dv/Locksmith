@@ -1,0 +1,9 @@
+<h1>New application</h1>
+
+<%= form_for(:application, url: create_application_path) do |f| %>
+    <%= errors_for @application, :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.submit 'Create application' %>
+<% end %>

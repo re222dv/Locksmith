@@ -7,11 +7,11 @@ module Locksmith
     validates :key, presence: true, uniqueness: true
 
     after_initialize do
-      loop do
-        # Generate a secure random key if missing and make sure that it's unique
-        self.key = SecureRandom.base64 25 if self.key.nil?
-        break if Application.where(key: self.key).empty?
-      end
+      regenerate_key if self.key.nil?
+    end
+
+    def regenerate_key
+      self.key = SecureRandom.base64 25
     end
   end
 end
