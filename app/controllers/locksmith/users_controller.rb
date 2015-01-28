@@ -6,6 +6,7 @@ module Locksmith
     def create
       @user = User.new(user_params)
       if @user.save
+        sign_in @user
         flash[:success] = 'Your account have been created'
         redirect_to root_path
       else

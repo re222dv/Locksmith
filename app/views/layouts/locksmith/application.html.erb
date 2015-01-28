@@ -10,6 +10,14 @@
   <% flash.each do |type, message| %>
       <p class="flash <%= type %>"><%= message %></p>
   <% end %>
+  <nav>
+    <% if signed_in? %>
+        <%= form_tag signout_path, :method => :delete do %>
+            <%= submit_tag 'Sign out' %>
+        <% end %>
+        <!--<%= link_to 'Sign out', signout_path, method: :post %>-->
+    <% end %>
+  </nav>
   <%= yield %>
   <%= debug(params) if Rails.env.development? %>
 </body>
