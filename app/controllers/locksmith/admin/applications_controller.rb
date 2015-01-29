@@ -2,7 +2,7 @@ require_dependency 'locksmith/application_controller'
 
 module Locksmith
   module Admin
-    class ApplicationsController < ApplicationController
+    class ApplicationsController < AdminController
       def delete
         @application = Application.find(params[:id])
       end

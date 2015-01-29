@@ -25,6 +25,7 @@ module Locksmith
       visit locksmith.signin_path
       expect(page).not_to have_content 'You have successfully signed in'
       expect(page).to have_button 'Sign out'
+      expect(page).not_to have_button 'Sign in'
     end
 
     scenario 'with blank fields' do
@@ -80,6 +81,37 @@ module Locksmith
       expect(page).to have_button 'Sign in'
       expect(page).not_to have_css '.flash.success'
       expect(page).not_to have_button 'Sign out'
+    end
+  end
+
+  feature 'Security' do
+    scenario 'Visit my applications without signing in' do
+      visit locksmith.root_path
+
+      expect(current_url).to be == locksmith.signin_url
+    end
+
+    scenario 'Visit create application page without signing in' do
+      visit locksmith.new_application_path
+
+      expect(current_url).to be == locksmith.signin_url
+      expect(page.find '.flash.error').to have_content 'You need to sign in'
+    end
+
+    scenario 'Visit an administration page without signing in' do
+      visit locksmith.admin_users_path
+
+      expect(current_url).to be == locksmith.signin_url
+      expect(page.find '.flash.error').to have_content 'You need to sign in'
+    end
+
+    scenario 'Visit an administration page as a normal user' do
+      sign_in 'Basic@User.com', 'password'
+
+      visit locksmith.admin_users_path
+
+      expect(current_url).to be == locksmith.root_url
+      expect(page.find '.flash.error').to have_content 'You don\'t have access to that page'
     end
   end
 end

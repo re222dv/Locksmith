@@ -2,7 +2,7 @@ require_dependency 'locksmith/application_controller'
 
 module Locksmith
   module Admin
-    class UsersController < ApplicationController
+    class UsersController < AdminController
       def destroy
         @user = User.find params[:id]
         @user.destroy

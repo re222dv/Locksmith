@@ -2,6 +2,9 @@ require_dependency 'locksmith/application_controller'
 
 module Locksmith
   class UsersController < ApplicationController
+    skip_before_action :validate_logged_in, only: [:create, :new]
+    before_action :validate_guest
+
     def create
       @user = User.new(user_params)
       if @user.save
@@ -18,6 +21,10 @@ module Locksmith
     end
 
     private
+
+    def validate_guest
+      redirect_to root_path if signed_in?
+    end
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
