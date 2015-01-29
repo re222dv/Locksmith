@@ -1,12 +1,9 @@
 Locksmith::Engine.routes.draw do
   root 'applications#index'
 
-  get 'application/new'         => 'applications#new',         as: :new_application
-  post 'application'            => 'applications#create',      as: :create_application
-  get 'application/:id'         => 'applications#show',        as: :application
-  post 'application/:id'        => 'applications#regenerate',  as: :regenerate
-  get 'application/:id/delete'  => 'applications#delete',      as: :delete_application
-  delete 'application/:id'      => 'applications#destroy',     as: :destroy_application
+  resources :applications, only: [:new, :create, :show, :destroy]
+  post 'applications/:id'        => 'applications#regenerate',  as: :regenerate
+  get 'applications/:id/delete'  => 'applications#delete',      as: :delete_application
 
   get    'signin'   => 'session#new'
   post   'signin'   => 'session#create'
