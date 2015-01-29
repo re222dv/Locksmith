@@ -11,4 +11,11 @@ Locksmith::Engine.routes.draw do
 
   get 'signup'   => 'users#new'
   post 'signup'  => 'users#create', as: :users
+
+  namespace :admin do
+    resources :users, only: [:index, :show, :destroy]
+    resources :applications, only: [:show, :destroy]
+    post 'applications/:id'        => 'applications#regenerate',  as: :regenerate
+    get 'applications/:id/delete'  => 'applications#delete',      as: :delete_application
+  end
 end

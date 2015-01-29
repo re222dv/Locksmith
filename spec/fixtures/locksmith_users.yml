@@ -10,6 +10,7 @@ edwin:
   id: 2
   name: Edwin
   email: admin@user.com
+  admin: true
   password_digest: $2a$04$r03BPvL39EqUzC8nTZnarOwz72Ho5Jc0AnOw4xcMEmm/UrETrU/qS
   created_at: 0
   updated_at: 0

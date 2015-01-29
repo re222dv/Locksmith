@@ -1,0 +1,7 @@
+<h1><%= @application.name %></h1>
+
+Key: <%= @application.key %>
+<%= form_tag admin_regenerate_path, method: :post do %>
+    <%= submit_tag 'Regenerate' %>
+<% end %>
+<%= link_to 'Delete application', admin_delete_application_path(@application) %>

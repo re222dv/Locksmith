@@ -1,0 +1,11 @@
+<h1><%= @user.name %></h1>
+
+<ul>
+  <% @user.applications.each do |application| %>
+      <li><%= link_to application.name, admin_application_path(application) %></li>
+  <% end %>
+</ul>
+
+<%= form_tag admin_user_path(@user), method: :delete do %>
+    <%= submit_tag 'Delete user' %>
+<% end %>

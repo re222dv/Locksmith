@@ -10,6 +10,11 @@ module Locksmith
       current_user.present?
     end
 
+    def admin?
+      return false unless signed_in?
+      current_user.admin
+    end
+
     # Signs in the given user.
     def sign_in(user)
       session[:user_id] = user.id
