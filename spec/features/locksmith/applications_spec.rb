@@ -49,9 +49,21 @@ module Locksmith
 
       click_link 'Delete application'
       click_button 'Yes, I\'m sure'
+
       expect(current_url).to be == locksmith.root_url
       expect(page).to have_link 'Narwhal'
       expect(page).not_to have_content 'Marlin'
+    end
+
+    scenario 'repent deleting an application' do
+      click_link 'Marlin'
+
+      click_link 'Delete application'
+      click_link 'No, go back'
+
+      expect(page).to have_content 'Marlin'
+      expect(page).to have_content 'Key'
+      expect(current_url).to be == locksmith.application_url(2)
     end
 
     scenario 'regenerate an API key' do
