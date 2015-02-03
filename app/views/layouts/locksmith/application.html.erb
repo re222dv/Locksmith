@@ -22,7 +22,12 @@
     <% end %>
   </nav>
 
-  <%= yield %>
-  <%= debug(params) if Rails.env.development? %>
+  <main>
+    <%= yield %>
+  </main>
+  <div class="auth-box">
+    <%= yield 'auth' %>
+  </div>
+  <!--<%= debug(params) if Rails.env.development? %>-->
 </body>
 </html>

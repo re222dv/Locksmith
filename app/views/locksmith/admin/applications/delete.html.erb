@@ -1,6 +1,6 @@
 <h2>Are you sure that you want to delete <%= @application.name %>?</h2>
 
 <%= form_tag admin_application_path(@application), method: :delete do %>
-    <%= submit_tag 'Yes, I\'m sure' %>
+    <%= submit_tag 'Yes, I\'m sure', class: 'danger' %>
+    <%= link_to 'No, go back', admin_application_path(@application), class: 'button' %>
 <% end %>
-<%= link_to 'No, go back', admin_application_path(@application) %>

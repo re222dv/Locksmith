@@ -1,0 +1,85 @@
+// The Bourbon, neat and bitters stack
+@import 'bourbon';
+@import "base/base"; // bitters
+@import "neat";
+@import "base/flash";
+
+body {
+    @include outer-container;
+
+    nav {
+        @include span-columns(3);
+
+        a, input[type="submit"] {
+            @extend a;
+
+            display: block;
+            margin: 0;
+            padding: 0.75em 1em;
+
+            width: 100%;
+
+            color: #333;
+            background: transparent;
+            border-radius: 0;
+
+            font-weight: bold;
+            text-align: left;
+
+            &:not(:last-child) {
+                border-bottom: 2px solid #333;
+            }
+
+            &:hover {
+                color: #ffffff;
+                background: rgb(56, 137, 215);
+            }
+        }
+    }
+
+    main {
+        @include span-columns(8);
+    }
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+.auth-box {
+    @include outer-container;
+    margin-top: 5rem;
+    width: 500px;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+}
+
+.button {
+    @extend button;
+    margin-left: 1rem;
+}
+
+
+#{$all-button-inputs},
+button,
+.button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    &.danger {
+        background-color: #c85051;
+    }
+}
+
+pre {
+    display: inline;
+    padding: 2px;
+
+    color: #c85051;
+    background-color: #ebebeb;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+}
