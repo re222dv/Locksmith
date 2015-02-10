@@ -16,4 +16,4 @@ it's possible to include it in other rails apps to get API token management func
     `rails s`
 1. Go to the app at
     `http://localhost:3000/locksmith`
-1. Login as a normal user with `basic@user.com` or admin as `admin@user.com`
+1. Login as a normal user with `basic@user.com` or admin as `admin@user.com` with password `password`
