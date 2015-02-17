@@ -11,7 +11,7 @@ module Locksmith
     end
 
     def regenerate_key
-      self.key = SecureRandom.base64 25
+      self.key = SecureRandom.hex
     end
   end
 end

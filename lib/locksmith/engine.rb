@@ -18,6 +18,8 @@ module Locksmith
       Sass.load_paths << stylesheets_path('neat')
     end
 
+    private
+
     def gem_path(gem)
       Gem::Specification.find_by_name(gem).gem_dir
     end
