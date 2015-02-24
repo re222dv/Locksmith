@@ -3,9 +3,6 @@ namespace :locksmith do
   task :populate => :environment do
     require 'faker'
 
-    Rake::Task['db:reset'].invoke
-
-
     anna = Locksmith::User.create(
         name: 'Anna',
         email: 'basic@user.com',
@@ -13,11 +10,13 @@ namespace :locksmith do
     )
     Locksmith::Application.create(
         name: 'Marwhal',
-        user: anna
+        user: anna,
+        key: 'b78d6ee724ccc781c8db08d37a375013'
     )
     Locksmith::Application.create(
         name: 'Marlin',
-        user: anna
+        user: anna,
+        key: '0bbcd3495e1c2b8706bbc29569f7c497'
     )
 
     edwin = Locksmith::User.create(
